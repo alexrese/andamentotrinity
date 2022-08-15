@@ -1,12 +1,13 @@
 <html>
 
 <head>
+    <title>Trinity Andamento</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load('current', { 'packages': ['bar'] });
-        google.charts.setOnLoadCallback(drawChart);
-        google.charts.setOnLoadCallback(drawChart2);
-        function drawChart() {
+        google.charts.setOnLoadCallback(trintySCP);
+        google.charts.setOnLoadCallback(trinityStartup);
+        function trintySCP() {
             let data = google.visualization.arrayToDataTable([
                 ['Módulos', 'Porcentagem (%)'],
                 ['GED', 100],
@@ -29,12 +30,12 @@
                     }
                 }
             };
-            let chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+            let chart = new google.charts.Bar(document.getElementById('trinitySCP'));
 
             chart.draw(data, google.charts.Bar.convertOptions(options));
         }
 
-        function drawChart2() {
+        function trinityStartup() {
             let data = google.visualization.arrayToDataTable([
                 ['Tarefas', 'Porcentagem (%)'],
                 ['Linkedin', 100],
@@ -57,7 +58,7 @@
                     }
                 }
             };
-            let chart = new google.charts.Bar(document.getElementById('columnchart_material2'));
+            let chart = new google.charts.Bar(document.getElementById('trinityStartup'));
 
             chart.draw(data, google.charts.Bar.convertOptions(options));
         }
@@ -65,9 +66,8 @@
 </head>
 
 <body>
-    <div id="columnchart_material" style="width: 100%; height: 500px;"></div>
-
-    <div id="columnchart_material2" style="width: 100%; height: 500px;"></div>
+    <div id="trinitySCP" style="width: 100%; height: 500px;"></div>
+    <div id="trinityStartup" style="width: 100%; height: 500px;"></div>
 </body>
 
 </html>
