@@ -1,7 +1,14 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
 
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <base href="C:/projetos/andamentotrinity/"> -->
+    <base href="https://alexrese.github.io/andamentotrinity/">
     <title>Trinity Andamento</title>
+
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load('current', { 'packages': ['bar'] });
@@ -12,9 +19,15 @@
                 ['Módulos', 'Porcentagem (%)'],
                 ['GED', 100],
                 ['Log', 100],
-                ['Inventário', 70],
+                ['Zenvia', 90],
                 ['Skymark', 90],
-                ['Armazém', 90]
+                ['Armazém', 90],
+                ['Inventário', 70],
+                ['Integração Contínua', 70],
+                ['Vencimento Cambio', 10],
+                ['Compartilhar', 10],
+                ['Demurrage', 0],
+                ['Banco 2.0', 0],
             ]);
 
             let options = {
@@ -33,16 +46,29 @@
             let chart = new google.charts.Bar(document.getElementById('trinitySCP'));
 
             chart.draw(data, google.charts.Bar.convertOptions(options));
+
+            google.visualization.events.addListener(chart, 'select', function () {
+                let selection = chart.getSelection();
+                if (selection.length) {
+                    let row = selection[0].row;
+                    // Pega a label, retira os ascentos, coloca em minusculas, e substititui todos os espaços por _
+                    let _url = data.getValue(row, 0).normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/ /g, "_");
+                    window.location.href = document.querySelector('base').href + _url + ".html";
+                }
+
+            });
         }
 
         function trinityStartup() {
             let data = google.visualization.arrayToDataTable([
                 ['Tarefas', 'Porcentagem (%)'],
                 ['Linkedin', 100],
+                ['Registro de Marca', 100],
+                ['Site Trinity', 30],
                 ['SWOT', 30],
                 ['Pesquisa Mercado', 10],
-                ['Vídeo Apresentação', 0],
-                ['Vídeo Demonstração', 10]
+                ['Vídeo Demonstração', 10],
+                ['Vídeo Apresentação', 0]
             ]);
 
             let options = {
@@ -66,8 +92,8 @@
 </head>
 
 <body>
-    <div id="trinitySCP" style="width: 100%; height: 500px;"></div>
-    <div id="trinityStartup" style="width: 100%; height: 500px;"></div>
+    <div id="trinitySCP" style="width: 100%; height: 450px;"></div>
+    <div id="trinityStartup" style="width: 100%; height: 450px;"></div>
 </body>
 
 </html>
