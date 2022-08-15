@@ -16,9 +16,9 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load('current', { 'packages': ['gantt'] });
-        google.charts.setOnLoadCallback(ged);
+        google.charts.setOnLoadCallback(zenvia);
 
-        function ged() {
+        function zenvia() {
 
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Task ID');
@@ -31,23 +31,20 @@
             data.addColumn('string', 'Dependencies');
 
             data.addRows([
-                ['GEDmodulo', 'GED', 'modulo',
-                    new Date(2022, 6, 1), new Date(2022, 7, 10), null, 100, null],
+                ['GEDmodulo', 'Zenvia', 'modulo',
+                    new Date(2022, 6, 25), new Date(2022, 7, 30), null, 90, null],
                 ['RequisitosEtapa', 'Requisitos', 'requisitos',
-                    new Date(2022, 6, 4), new Date(2022, 6, 5), null, 100, null],
-                ['Design', 'Design & Layout', 'layout',
-                    new Date(2022, 6, 5), new Date(2022, 6, 7), null, 100, null],
-                ['Implementação', 'Interfaces (Front)', 'interface',
-                    new Date(2022, 6, 7), new Date(2022, 6, 13), null, 100, null],
-                ['Algoritmo', 'Implementação (Back)', 'algoritmo',
-                    new Date(2022, 6, 13), new Date(2022, 6, 25), null, 100, null],
+                    new Date(2022, 6, 26), new Date(2022, 6, 27), null, 100, null],
+                ['Fluxograma', 'Fluxograma', 'fluxograma',
+                    new Date(2022, 6, 27), new Date(2022, 6, 29), null, 100, null],
+                ['Implementação', 'Implementação Fluxograma', 'implementacao',
+                    new Date(2022, 6, 29), new Date(2022, 7, 25), null, 90, null],
                 ['Homologação', 'Homologação', 'homologacao',
-                    new Date(2022, 6, 25), new Date(2022, 6, 26), null, 100, null],
+                    new Date(2022, 7, 25), new Date(2022, 7, 30), null, 0, null],
                 ['Testes', 'Testes', 'testes',
-                    new Date(2022, 6, 25), new Date(2022, 7, 1), null, 100, null],
+                    new Date(2022, 7, 25), new Date(2022, 7, 30), null, 0, null],
                 ['Produção', 'Produção', 'producao',
-                    new Date(2022, 7, 1), new Date(2022, 7, 10), null, 100, null]
-
+                    new Date(2022, 7, 28), new Date(2022, 7, 30), null, 0, null]
             ]);
 
             var options = {
@@ -57,7 +54,7 @@
                 }
             };
 
-            var chart = new google.visualization.Gantt(document.getElementById('ged'));
+            var chart = new google.visualization.Gantt(document.getElementById('zenvia'));
 
             chart.draw(data, options);
         }
@@ -66,16 +63,13 @@
 
 <body>
     <div class="m-5">
-        <h1 class="text-center mb-5">GED - Gerenciador Eletronico de Documentos</h1>
-        <div id="ged"></div>
+        <h1 class="text-center mb-5">Zenvia - Mensageiro</h1>
+        <div id="zenvia"></div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <a href="https://alexrese.github.io/andamentotrinity/"><button class="btn btn-primary"
                     type="button">Voltar</button></a>
         </div>
     </div>
-
-
-
 </body>
 
 </html>
