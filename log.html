@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <base href="C:/projetos/andamentotrinity/"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <base href="https://alexrese.github.io/andamentotrinity/">
+    <link rel="icon" type="image/x-icon" href="img/icone.png">
+    <title>Trinity Andamento</title>
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['gantt'] });
+        google.charts.setOnLoadCallback(log);
+
+        function log() {
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Task ID');
+            data.addColumn('string', 'Task Name');
+            data.addColumn('string', 'Resource');
+            data.addColumn('date', 'Start Date');
+            data.addColumn('date', 'End Date');
+            data.addColumn('number', 'Duration');
+            data.addColumn('number', 'Percent Complete');
+            data.addColumn('string', 'Dependencies');
+
+            data.addRows([
+                ['LOGmodulo', 'LOG', 'modulo',
+                    new Date(2022, 7, 1), new Date(2022, 7, 15), null, 100, null],
+                ['RequisitosEtapa', 'Requisitos', 'requisitos',
+                    new Date(2022, 7, 1), new Date(2022, 7, 2), null, 100, null],
+                ['Banco', 'Banco', 'banco',
+                    new Date(2022, 7, 2), new Date(2022, 7, 3), null, 100, null],
+                ['Email', 'E-mail', 'email',
+                    new Date(2022, 7, 3), new Date(2022, 7, 5), null, 100, null],
+                ['Algoritmo', 'Implementação Código', 'algoritmo',
+                    new Date(2022, 7, 3), new Date(2022, 7, 11), null, 100, null],
+                ['Homologação', 'Homologação', 'homologacao',
+                    new Date(2022, 7, 11), new Date(2022, 7, 15), null, 100, null],
+                ['Testes', 'Testes', 'testes',
+                    new Date(2022, 7, 11), new Date(2022, 7, 15), null, 100, null],
+                ['Produção', 'Produção', 'producao',
+                    new Date(2022, 7, 11), new Date(2022, 7, 15), null, 100, null]
+
+            ]);
+
+            var options = {
+                height: 400,
+                gantt: {
+                    trackHeight: 30
+                }
+            };
+
+            var chart = new google.visualization.Gantt(document.getElementById('log'));
+
+            chart.draw(data, options);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="m-5">
+        <h1 class="text-center mb-5">LOG - Acessos e E-mail </h1>
+        <div id="log"></div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="https://alexrese.github.io/andamentotrinity/"><button class="btn btn-primary"
+                    type="button">Voltar</button></a>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
