@@ -82,6 +82,17 @@
             let chart = new google.charts.Bar(document.getElementById('trinityStartup'));
 
             chart.draw(data, google.charts.Bar.convertOptions(options));
+
+            google.visualization.events.addListener(chart, 'select', function () {
+                let selection = chart.getSelection();
+                if (selection.length) {
+                    let row = selection[0].row;
+                    // Pega a label, retira os ascentos, coloca em minusculas, e substititui todos os espaços por _
+                    let _url = data.getValue(row, 0).normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/ /g, "_");
+                    window.location.href = document.querySelector('base').href + _url + ".html";
+                }
+
+            });
         }
     </script>
 </head>
