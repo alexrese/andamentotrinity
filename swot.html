@@ -16,9 +16,9 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load('current', { 'packages': ['gantt'] });
-        google.charts.setOnLoadCallback(integracao);
+        google.charts.setOnLoadCallback(swot);
 
-        function integracao() {
+        function swot() {
 
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Task ID');
@@ -31,26 +31,12 @@
             data.addColumn('string', 'Dependencies');
 
             data.addRows([
-                ['Integracaomodulo', 'Integração', 'modulo',
-                    new Date(2022, 6, 22), new Date(2022, 9, 20), null, 70, null],
-                ['PlanoAção', 'Plano de Ação', 'plano',
-                    new Date(2022, 6, 22), new Date(2022, 6, 23), null, 100, null],
-                ['Instalação', 'Instalação Servidor', 'instalacao',
-                    new Date(2022, 6, 22), new Date(2022, 6, 23), null, 100, null],
-                ['Configuração', 'Configuração', 'configuracao',
-                    new Date(2022, 6, 23), new Date(2022, 7, 17), null, 100, null],
-                ['DefinicaoBranches', 'Definição (Branches)', 'definicao',
-                    new Date(2022, 6, 23), new Date(2022, 7, 17), null, 100, null],
-                ['Walkthrogh', 'Walkthrogh de Deploy', 'walkthrogh',
-                    new Date(2022, 7, 17), new Date(2022, 8, 25), null, 30, null],
-                ['Script', ' Script `sh` para Deploy', 'script',
-                    new Date(2022, 8, 25), new Date(2022, 8, 27), null, 0, null],
-                ['AcessoSSH', 'Acesso ssh', 'ssh',
-                    new Date(2022, 8, 27), new Date(2022, 8, 29), null, 0, null],
-                ['Pipeline', 'Pipeline', 'pipeline',
-                    new Date(2022, 8, 29), new Date(2022, 9, 05), null, 0, null],
-                ['Testes', 'Testes pipeline', 'testes',
-                    new Date(2022, 9, 05), new Date(2022, 9, 20), null, 0, null]
+                ['Matriz', 'Matriz SWOT', 'matriz',
+                    new Date(2022, 6, 10), new Date(2022, 8, 30), null, 30, null],
+                ['Primeira', 'Primeira rodada', 'primeira',
+                    new Date(2022, 6, 15), new Date(2022, 7, 20), null, 100, null],
+                ['Segunda', 'Segunda rodada', 'segunda',
+                    new Date(2022, 7, 1), new Date(2022, 7, 5), null, 100, null]
             ]);
 
             var options = {
@@ -60,7 +46,7 @@
                 }
             };
 
-            var chart = new google.visualization.Gantt(document.getElementById('integracao'));
+            var chart = new google.visualization.Gantt(document.getElementById('swot'));
 
             chart.draw(data, options);
         }
@@ -69,14 +55,14 @@
 
 <body>
     <div class="m-5">
-        <h1 class="text-center mb-5">Integração Contínua - Jenkins</h1>
-        <div id="integracao"></div>
+        <h1 class="text-center mb-5">Matriz SWOT</h1>
+        <div id="swot"></div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <a href="https://alexrese.github.io/andamentotrinity/"><button class="btn btn-primary"
                     type="button">Voltar</button></a>
         </div>
         <ol>
-            <li>30/08/2022 - Tarefa em standby para montar a tela de Vencimento Cambio.</li>
+            <li>Realizado duas rodas da Matriz SWOT.</li>
         </ol>
     </div>
 </body>

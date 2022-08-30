@@ -16,9 +16,9 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load('current', { 'packages': ['gantt'] });
-        google.charts.setOnLoadCallback(integracao);
+        google.charts.setOnLoadCallback(goldenCircle);
 
-        function integracao() {
+        function goldenCircle() {
 
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Task ID');
@@ -31,26 +31,14 @@
             data.addColumn('string', 'Dependencies');
 
             data.addRows([
-                ['Integracaomodulo', 'Integração', 'modulo',
-                    new Date(2022, 6, 22), new Date(2022, 9, 20), null, 70, null],
-                ['PlanoAção', 'Plano de Ação', 'plano',
-                    new Date(2022, 6, 22), new Date(2022, 6, 23), null, 100, null],
-                ['Instalação', 'Instalação Servidor', 'instalacao',
-                    new Date(2022, 6, 22), new Date(2022, 6, 23), null, 100, null],
-                ['Configuração', 'Configuração', 'configuracao',
-                    new Date(2022, 6, 23), new Date(2022, 7, 17), null, 100, null],
-                ['DefinicaoBranches', 'Definição (Branches)', 'definicao',
-                    new Date(2022, 6, 23), new Date(2022, 7, 17), null, 100, null],
-                ['Walkthrogh', 'Walkthrogh de Deploy', 'walkthrogh',
-                    new Date(2022, 7, 17), new Date(2022, 8, 25), null, 30, null],
-                ['Script', ' Script `sh` para Deploy', 'script',
-                    new Date(2022, 8, 25), new Date(2022, 8, 27), null, 0, null],
-                ['AcessoSSH', 'Acesso ssh', 'ssh',
-                    new Date(2022, 8, 27), new Date(2022, 8, 29), null, 0, null],
-                ['Pipeline', 'Pipeline', 'pipeline',
-                    new Date(2022, 8, 29), new Date(2022, 9, 05), null, 0, null],
-                ['Testes', 'Testes pipeline', 'testes',
-                    new Date(2022, 9, 05), new Date(2022, 9, 20), null, 0, null]
+                ['Golden', 'Golden Circle', 'golden',
+                    new Date(2022, 7, 25), new Date(2022, 7, 30), null, 100, null],
+                ['Estudo', 'Estudo', 'estudo',
+                    new Date(2022, 7, 26), new Date(2022, 7, 27), null, 100, null],
+                ['Apresentacao', 'Apresentação', 'apresentacao',
+                    new Date(2022, 7, 27), new Date(2022, 7, 30), null, 100, null],
+                ['Definicao', 'Definição com Equipe', 'definicao',
+                    new Date(2022, 7, 27), new Date(2022, 7, 30), null, 100, null]
             ]);
 
             var options = {
@@ -60,7 +48,7 @@
                 }
             };
 
-            var chart = new google.visualization.Gantt(document.getElementById('integracao'));
+            var chart = new google.visualization.Gantt(document.getElementById('goldenCircle'));
 
             chart.draw(data, options);
         }
@@ -69,14 +57,16 @@
 
 <body>
     <div class="m-5">
-        <h1 class="text-center mb-5">Integração Contínua - Jenkins</h1>
-        <div id="integracao"></div>
+        <h1 class="text-center mb-5">Golden Circle</h1>
+        <div id="goldenCircle"></div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <a href="https://alexrese.github.io/andamentotrinity/"><button class="btn btn-primary"
                     type="button">Voltar</button></a>
         </div>
         <ol>
-            <li>30/08/2022 - Tarefa em standby para montar a tela de Vencimento Cambio.</li>
+            <li>PORQUE? 1- Por que queremos descomplicar toda a cadeia de suprimentos.</li>
+            <li>COMO? 2- Fornecendo transparência, unificando diferentes processos.</li>
+            <li>O QUE? 3- Criando softwares e aplicações.</li>
         </ol>
     </div>
 </body>
