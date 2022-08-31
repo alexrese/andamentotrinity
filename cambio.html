@@ -16,9 +16,9 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load('current', { 'packages': ['gantt'] });
-        google.charts.setOnLoadCallback(swot);
+        google.charts.setOnLoadCallback(cambio);
 
-        function swot() {
+        function cambio() {
 
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Task ID');
@@ -31,12 +31,20 @@
             data.addColumn('string', 'Dependencies');
 
             data.addRows([
-                ['Matriz', 'Matriz SWOT', 'matriz',
-                    new Date(2022, 6, 10), new Date(2022, 8, 30), null, 30, null],
-                ['Primeira', 'Primeira rodada', 'primeira',
-                    new Date(2022, 6, 15), new Date(2022, 6, 20), null, 100, null],
-                ['Segunda', 'Segunda rodada', 'segunda',
-                    new Date(2022, 7, 1), new Date(2022, 7, 5), null, 100, null]
+                ['Vencimentomodulo', 'Vencimento Cambio', 'modulo',
+                    new Date(2022, 7, 1), new Date(2022, 8, 20), null, 30, null],
+                ['design', 'Design & Layout', 'design',
+                    new Date(2022, 7, 1), new Date(2022, 7, 3), null, 100, null],
+                ['ImplementacaoFront', 'Implementação (Front)', 'front',
+                    new Date(2022, 7, 22), new Date(2022, 8, 6), null, 50, null],
+                ['ImplementacaoBack', 'Implementação (Back)', 'back',
+                    new Date(2022, 8, 6), new Date(2022, 8, 16), null, 80, null],
+                ['Homologação', 'Homologação', 'homologacao',
+                    new Date(2022, 8, 16), new Date(2022, 8, 20), null, 0, null],
+                ['Testes', 'Testes', 'testes',
+                    new Date(2022, 8, 16), new Date(2022, 8, 20), null, 0, null],
+                ['Produção', 'Produção', 'producao',
+                    new Date(2022, 8, 19), new Date(2022, 8, 20), null, 0, null]
             ]);
 
             var options = {
@@ -46,7 +54,7 @@
                 }
             };
 
-            var chart = new google.visualization.Gantt(document.getElementById('swot'));
+            var chart = new google.visualization.Gantt(document.getElementById('cambio'));
 
             chart.draw(data, options);
         }
@@ -55,15 +63,12 @@
 
 <body>
     <div class="m-5">
-        <h1 class="text-center mb-5">Matriz SWOT</h1>
-        <div id="swot"></div>
+        <h1 class="text-center mb-5">Vencimento Cambio</h1>
+        <div id="cambio"></div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <a href="https://alexrese.github.io/andamentotrinity/"><button class="btn btn-primary"
                     type="button">Voltar</button></a>
         </div>
-        <ol>
-            <li>Realizado duas rodas da Matriz SWOT.</li>
-        </ol>
     </div>
 </body>
 

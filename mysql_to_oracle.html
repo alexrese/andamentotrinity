@@ -16,9 +16,9 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load('current', { 'packages': ['gantt'] });
-        google.charts.setOnLoadCallback(swot);
+        google.charts.setOnLoadCallback(mysqlOracle);
 
-        function swot() {
+        function mysqlOracle() {
 
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Task ID');
@@ -31,12 +31,22 @@
             data.addColumn('string', 'Dependencies');
 
             data.addRows([
-                ['Matriz', 'Matriz SWOT', 'matriz',
-                    new Date(2022, 6, 10), new Date(2022, 8, 30), null, 30, null],
-                ['Primeira', 'Primeira rodada', 'primeira',
-                    new Date(2022, 6, 15), new Date(2022, 6, 20), null, 100, null],
-                ['Segunda', 'Segunda rodada', 'segunda',
-                    new Date(2022, 7, 1), new Date(2022, 7, 5), null, 100, null]
+                ['Migrar', 'MySQL to Oracle', 'migrar',
+                    new Date(2022, 7, 26), new Date(2022, 8, 9), null, 15, null],
+                ['Plano', 'Plano Ação', 'plano',
+                    new Date(2022, 7, 26), new Date(2022, 7, 27), null, 100, null],
+                ['Conexao', 'Conexão', 'conexao',
+                    new Date(2022, 7, 26), new Date(2022, 7, 29), null, 100, null],
+                ['TypeORM', 'TypeORM', 'typeorm',
+                    new Date(2022, 7, 29), new Date(2022, 8, 9), null, 20, null],
+                ['Query', 'Query', 'query',
+                    new Date(2022, 7, 29), new Date(2022, 8, 9), null, 10, null],
+                ['Homologação', 'Homologação', 'homologacao',
+                    new Date(2022, 8, 8), new Date(2022, 8, 9), null, 0, null],
+                ['Testes', 'Testes', 'testes',
+                    new Date(2022, 8, 8), new Date(2022, 8, 9), null, 0, null],
+                ['Produção', 'Produção', 'producao',
+                    new Date(2022, 8, 9), new Date(2022, 8, 9), null, 0, null]
             ]);
 
             var options = {
@@ -46,7 +56,7 @@
                 }
             };
 
-            var chart = new google.visualization.Gantt(document.getElementById('swot'));
+            var chart = new google.visualization.Gantt(document.getElementById('mysqlOracle'));
 
             chart.draw(data, options);
         }
@@ -55,15 +65,12 @@
 
 <body>
     <div class="m-5">
-        <h1 class="text-center mb-5">Matriz SWOT</h1>
-        <div id="swot"></div>
+        <h1 class="text-center mb-5">Migrar MySQL to Oracle</h1>
+        <div id="mysqlOracle"></div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <a href="https://alexrese.github.io/andamentotrinity/"><button class="btn btn-primary"
                     type="button">Voltar</button></a>
         </div>
-        <ol>
-            <li>Realizado duas rodas da Matriz SWOT.</li>
-        </ol>
     </div>
 </body>
 
