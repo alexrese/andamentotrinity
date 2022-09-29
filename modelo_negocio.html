@@ -22,9 +22,9 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load('current', { 'packages': ['gantt'] });
-        google.charts.setOnLoadCallback(i18n);
+        google.charts.setOnLoadCallback(zenvia);
 
-        function i18n() {
+        function modeloNegocio() {
 
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Task ID');
@@ -37,27 +37,20 @@
             data.addColumn('string', 'Dependencies');
 
             data.addRows([
-                ['I18Nmodulo', 'i18n', 'modulo',
-                    new Date(2022, 7, 25), new Date(2022, 9, 10), null, 70, null],
-                ['Vuetify', 'Vuetify lang', 'vuetify',
-                    new Date(2022, 7, 29), new Date(2022, 8, 19), null, 100, null],
-                ['Dicionario', 'Criar Dicionário', 'dicionario',
-                    new Date(2022, 7, 29), new Date(2022, 8, 23), null, 80, null],
-                ['Atualizar', 'Atualizar Dicionário', 'atualizar',
-                    new Date(2022, 7, 30), new Date(2022, 8, 2), null, 100, null],
-                ['Portugues', 'Português', 'portugues',
-                    new Date(2022, 8, 2), new Date(2022, 8, 7), null, 100, null],
-                ['Ingles', 'Inglês', 'ingles',
-                    new Date(2022, 8, 5), new Date(2022, 8, 13), null, 100, null],
-                ['Alemao', 'Alemão', 'alemao',
-                    new Date(2022, 7, 12), new Date(2022, 8, 22), null, 100, null],
+                ['GEDmodulo', 'Modelo Negócio', 'modulo',
+                    new Date(2022, 6, 25), new Date(2022, 7, 30), null, 90, null],
+                ['RequisitosEtapa', 'Requisitos', 'requisitos',
+                    new Date(2022, 6, 26), new Date(2022, 6, 27), null, 100, null],
+                ['Fluxograma', 'Fluxograma', 'fluxograma',
+                    new Date(2022, 6, 27), new Date(2022, 6, 29), null, 100, null],
+                ['Implementação', 'Implementação Fluxograma', 'implementacao',
+                    new Date(2022, 6, 29), new Date(2022, 7, 25), null, 90, null],
                 ['Homologação', 'Homologação', 'homologacao',
-                    new Date(2022, 8, 6), new Date(2022, 8, 23), null, 100, null],
+                    new Date(2022, 7, 25), new Date(2022, 7, 30), null, 0, null],
                 ['Testes', 'Testes', 'testes',
-                    new Date(2022, 8, 6), new Date(2022, 8, 23), null, 100, null],
+                    new Date(2022, 7, 25), new Date(2022, 7, 30), null, 0, null],
                 ['Produção', 'Produção', 'producao',
-                    new Date(2022, 8, 8), new Date(2022, 9, 10), null, 0, null]
-
+                    new Date(2022, 7, 28), new Date(2022, 7, 30), null, 0, null]
             ]);
 
             var options = {
@@ -67,7 +60,7 @@
                 }
             };
 
-            var chart = new google.visualization.Gantt(document.getElementById('i18n'));
+            var chart = new google.visualization.Gantt(document.getElementById('modeloNegocio'));
 
             chart.draw(data, options);
         }
@@ -76,18 +69,13 @@
 
 <body>
     <div class="m-5">
-        <h1 class="text-center mb-5">Internacionalização (i18n) </h1>
-        <div id="i18n"></div>
+        <h1 class="text-center mb-5">Modelo de Negócio - Trinity</h1>
+        <div id="modeloNegocio"></div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <a href="https://alexrese.github.io/andamentotrinity/"><button class="btn btn-primary"
                     type="button">Voltar</button></a>
         </div>
-        <ol>
-            <li>28/08/2022 - Português, Alemão e Inglês implementados.</li>
-            <li>28/08/2022 - Montar a linguagem para o espanhol.</li>
-        </ol>
     </div>
-
 </body>
 
 </html>
